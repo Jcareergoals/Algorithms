@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unique</title>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+		<style type="text/css">
+			* {margin: 0px; padding: 0px; }
+			body {background-color: silver; font-size: 1em;}
+			#container {
+				width: 960px; padding: 20px; 
+				margin: 40px auto; 
+				border: 1px solid black; 
+				background-color: white; 
+			}
+			#unique {
+				width: 350px; height: 150px; 
+				background-color: silver;
+				box-shadow: 0px 0px 5px black inset; 
+				margin: 20px auto; padding: 10px; 
+				color: red;
+				font-weight: bold; 
+				overflow: auto; 
+			}
+			h3 {text-align: center;}
+			form * {padding: 5px;}
+			form {
+				margin: 5px auto; 
+				display: block; 
+				width: 350px;
+			}
+			span {color: green;}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				function checkForUnique(word){
+					var newWord = word[0]; 
+					// check character
+					for(x in word){
+						var located = false;
+						// check against character
+						for(y in newWord){
+							if(word[x] == newWord[y]){
+								located = true; 
+								// count += 1; 
+							}
+						}
+						if(!located){
+							newWord += word[x];
+						}
+					}
+					return newWord;  
+				}
+				$('form').submit(function(data){
+					var word = $('#word').val();
+					if(word.length == 0){
+						alert("Please enter a word"); 
+					} else {
+						var newCharacters = checkForUnique(word);
+						$('#unique').append("<p>"+word+": <span>"+newCharacters+"</span> </p>"); 
+					}
+					return false; 
+				}); 
+			}); 
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h3>Given a string, return a string with only the unique characters. (Ex: "Mississippi" to "Misp").</h3>
+			<div id="unique"></div>
+			<form action="" method="post">
+				<label for='string'>Enter String</label>
+				<input type='text' placeholder='Enter String' name='word' id='word'>
+				<input type='submit' value='submit'>		
+			</form>
+		</div> <!-- End Container -->
+	</body> 
+</html>
