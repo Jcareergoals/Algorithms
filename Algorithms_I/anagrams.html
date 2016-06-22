@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Anagrams</title>
+		<meta charset="UTF-8">
+		<meta name="description" content='Given a string, return an array with all of its anagrams. (Ex: Given "car", return ["car", "cra", "acr", "arc", "rac", "rca"])'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+		<style type="text/css">
+			#anagrams {
+				max-width: 700px; 
+				min-width: 200px; 
+				min-height: 100px; 
+				background-color: silver; 
+				box-shadow: 0px 0px 5px black inset; 
+				margin-bottom: 10px; 
+				padding: 5px; 
+			}
+			span {color: red;}
+		</style>
+		<script>
+			$(document).ready(function(){
+				// ANAGRAM FUNCTION
+				function getAnagram(word){
+					var newWord = []; 
+					var reps = word.length;
+					var len =  word.length-1; 
+					var tempWord = word.split("");
+
+					for(var i = reps; i > 0; i--){
+						var word = ""; 
+						for(x = len; x > 0; x--){
+							var character, temp; 	
+							temp = tempWord[x];
+							tempWord[x] = tempWord[x - 1];
+							tempWord[x - 1] = temp;
+							for(y in tempWord){
+								word += tempWord[y];
+							}
+							newWord.push(word);
+							word = "";
+						}
+					}
+					return newWord; 
+				}
+				// FORM 
+				$('form').submit(function(){
+					var test = $('#anagram').val();
+					$('#anagrams').val("");
+					if(test.length > 1){
+						var results = getAnagram(test); 
+						var anagrams = "<p><b>Anagrams for <span>"+test+"</span>: <br></b>"; 
+						for(x in results){ anagrams += results[x]+", "}
+						anagrams += "</p>";
+						$('#anagrams').html(anagrams); 
+						$('#anagram').val("");
+					} else {alert("Please enter an actual word");}
+					return false; 
+				});
+			}); 
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h4>Given a string, return an array with all of its anagrams. (Ex: Given "car", return ["car", "cra", "acr", "arc", "rac", "rca"])</h4>
+			<div id='anagrams'></div>
+			<form action='' method='post'>
+				<input type='text' id='anagram' name='anagram' autofocus>
+				<input type='submit' value='submit'>
+			</form>
+		</div> <!-- End Container -->
+	</body> 
+</html>
