@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Shift Array Values</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			 var y, temp, result = [], array = [1,-6,-10,8,2,16,-7]; 
+			 $('.btn').click(function(){
+				 array.push(0); 
+				 array.shift();
+				 $('p').html("");
+				 for(x in array){
+				 	$('p').append(array[x]+" ");
+				 }
+			 }); 
+			 for(x in array){
+			 	$('p').append(array[x]+" ");
+			 }
+		}); 
+	</script>
+</head>
+<body>
+	<h3>Given any array x, say [1, 5, 10, 7, -2], create an algorithm that shifts each number by one to the front.  For example, when the program is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0].</h3>
+	<h4>We'll use the following array: [1,-6,-10,8,2,16,-7]</h4>
+	<p></p>
+	<button class='btn'>Shift</button>
+</body>
+</html>
