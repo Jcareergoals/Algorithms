@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Find Max</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function getMax(test){
+				var max = 0;
+				for(x in test){
+					if(test[x] > max){
+						max = test[x];
+					}
+				}
+				return max; 
+			}
+			var array = [-2,-4,0,5,7,-3];
+			var max = getMax(array); 
+			$('p').text("The max number in this array is: "+max);
+		}); 
+	</script>
+</head>
+<body>
+	<h3>Write a program (sets of instructions) that takes any array and prints the maximum value in the array. Your program should also work with a given array that has all negative numbers (e.g. [-3, -5, -7]), or even a mix of positive numbers, negative numbers and zero.</h3>
+	<h4>We'll use the following array: [-2, -4, 0, 5, 7, -3]</h4>
+	<p></p>
+</body>
+</html>
