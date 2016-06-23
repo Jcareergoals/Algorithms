@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Get Average</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var result, array = [0,5,3,6,25,4,-10,2,6]; 
+			function getAvg(test){
+				var avg, sum = 0, len = array.length; 
+				for(x in array){
+					sum += array[x];
+				}
+				avg = Math.floor(sum / len); 
+				return avg; 
+			}
+			result = getAvg(array);
+			$('p').text("The average of this array is: "+result);
+		}); 
+	</script>
+</head>
+<body>
+	<h3>Write a program that takes an array, and prints the AVERAGE of the values in the array. For example for an array [2, 10, 3], your program should print an average of 5. Again, make sure you come up with a simple base case and write instructions to solve that base case first, then test your instructions for other complicated cases. You can use a count function with this assignment</h3>
+	<h4>We'll use the following array: [0,5,3,6,25,4,-10,2,6]:</h4>
+	<p></p>
+</body>
+</html>
