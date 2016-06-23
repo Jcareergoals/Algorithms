@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Square The Values</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var array = [-2,8,16,5,12,-9];
+			var newArray = []; 
+			for(x in array){
+				newArray.push(array[x] * array[x]); 
+			}
+			$('p').append("["); 
+			for(y in newArray){
+				$('p').append(newArray[y]+", "); 
+			}
+			$('p').append("]"); 
+		});
+	</script>
+</head>
+<body>
+	<h3>Given any array x, say [1, 5, 10, -2], create an algorithm (sets of instructions) that multiplies each value in the array by itself.  When the program is done, the array x should have values that have been squared, say [1, 25, 100, 4].</h3>
+	<h4>We will use the following array: [-2,8,16,5,12,-9]</h4>
+	<p></p>
+</body>
+</html>
