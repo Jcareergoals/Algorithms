@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Binary String</title>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+		<script type="text/javascript">
+			function checkBinary(word){
+				for(x in word){
+					switch (word[x]) {
+						case "?":
+						case "0":
+						case "1":
+							return true; 
+					}
+				}
+				console.log("String must only contain the following characters: '0','1', or '?'");
+				return false; 
+			}
+			function getPatterns(word){
+				var patterns = []; 
+				var temp = [word]; 
+				console.log(word.length); 
+				for(var x=0; x<word.length; x++ ){
+					var y = word[x].indexOf("?");
+					if(y >= 0){
+						patterns.push(word[x].substring(0,y)+"0"+word[x].substring(y+1, word[x].length));
+						patterns.push(word[x].substring(0,y)+"1"+word[x].substring(y+1, word[x].length));
+					}
+					console.log(patterns);
+				}
+				return patterns; 
+			}
+			$(document).ready(function(){
+				$('form').submit(function(){
+					var patterns = "", string = $('#string').val(); 
+					// VERIFY WORD
+					if(string.length > 1){
+						// VERIFY PATTERN
+						if(checkBinary(string)){
+							var result = getPatterns(string);
+							if(result.length > 1){
+								for(x in result){
+									patterns += result[x]+", ";
+								}
+								$('#results').html("<p>"+patterns+"</p>");
+							} else {$('#results').html("<p>There are no patterns for: "+string+"</p>");}
+						} else { alert("String must only contain the following characters: '0','1', or '?' ");}
+					} else { alert("Please enter a string with more the 1 character"); }
+					$('#string').val("");
+					return false; 
+				}); 
+			}); 
+	// (function(){
+	// 	function fillBinary(string, arr){
+	// 		if(!arr){ var arr = [string]; }
+	// 		var new_arr = [];
+	// 		var done = true;
+	// 		for(var i=0, arrlen=arr.length; i<arrlen; i++){
+	// 			if(arr[i].indexOf("?") != -1){ done= false; }
+	// 		}
+	// 		if(!done){
+	// 			for(var i=0; i<arrlen; i++){
+	// 				var j = arr[i].indexOf("?");
+	// 				new_arr.push(arr[i].substring(0,j)+"0"+arr[i].substring(j+1, arr[i].length));
+	// 				new_arr.push(arr[i].substring(0,j)+"1"+arr[i].substring(j+1, arr[i].length));
+	// 			}
+	// 			return fillBinary(string, new_arr);
+	// 		}
+	// 		return arr;
+	// 	}
+	// 	var test="1?00?101";
+	// 	console.log("The complete versions of "+test+" are:", fillBinary(test));
+	// })();
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h3>Given a string pattern of 0s, 1s, and ?s, generate all 0-1 strings that match this pattern.(Ex: Given "1?00?101", return ["10000101", "10001101", "11000101", "11001101"].</h3>
+			<div id="results"></div>
+			<form action="" method="post">
+				<input type='text' id='string' placeholder="Enter String" autofocus>
+				<input type='submit' value='submit'>
+			</form>			
+		</div> <!-- End Container -->
+	</body> 
+</html>
