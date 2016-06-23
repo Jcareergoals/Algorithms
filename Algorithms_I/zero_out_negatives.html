@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Zero Out Negatives</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function zeroOut(array){
+				for(x in array){
+					if(array[x] < 0){
+						array[x] = 0;
+					}
+				}
+				return array; 
+			}
+			var result = zeroOut([-3,5,9,-1,5]); 
+			for(x in result){
+				$('p').append(result[x]+", "); 
+			}
+		}); 
+	</script>
+</head>
+<body>
+	<h3>Given any array x, say [1, 5, 10, -2], create an algorithm that replaces any negative number with the value of 0.  When the program is done, x should have no negative values, say [1, 5, 10, 0].</h3>
+	<h4>We'll be using the following array: [-3,5,9,-1,5]</h4>
+	<p></p>
+</body>
+</html>
