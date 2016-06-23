@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Max, Min Average</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var array = [4,-3,-8,12,5,7]; 
+			function getMinMaxAvg(array){
+				var min, max, sum=0, avg, result=[];
+				min = array[0]; 
+				max = array[0]; 
+				for(x in array){
+					// GET MIN
+					if(array[x] < min){
+						min = array[x];
+					}
+					// GET MAX
+					if(array[x] > max){
+						max = array[x];
+					}
+					sum += array[x]; 
+				}
+				// GET AVERAGE
+				avg = Math.floor(sum/array.length); 
+				result["min"] = min; 
+				result["max"] = max; 
+				result["avg"] = avg; 
+				return result; 
+			}
+
+			var results = getMinMaxAvg(array);
+			$('#min').text("The Min for this array is: "+results["min"]); 
+			$('#max').text("The Max for this array is: "+results["max"]);
+			$('#avg').text("The Average for this array is: "+results["avg"]);
+		}); 	
+	</script>
+</head>
+<body>
+	<h3>Given any array x, say [1, 5, 10, -2], create an algorithm that prints the maximum number in the array, the minimum value in the array, and the average of the values in the array.</h3>
+	<h4>We'll use the following array: [4,-3,-8,12,5,7]</h4>
+	<p id="min"></p>
+	<p id="max"></p>
+	<p id="avg"></p>
+</body>
+</html>
