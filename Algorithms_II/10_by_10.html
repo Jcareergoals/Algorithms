@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>10 by 10</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<style type="text/css">
+		* {margin: 0px; padding: 0px;}
+		body {
+			text-align: center; 
+			background-color: silver;
+		}
+		#box {
+			padding: 5px; 
+			width: 720px; 
+			margin: 0px auto; 
+			border: 4px solid black; 
+			overflow: auto; 
+			background-color: white;
+		}
+		.element {
+			width: 50px; height: 20px; 
+			display: inline-block;
+			border: 1px solid black;  
+			padding: 10px;  
+		}
+		.E {background-color: yellow;}
+		.D {background-color: blue;}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var rand, A; 
+			var L = $('#box'); 
+			for(var x=0; x<10; x++){
+				for(var i=0; i<10; i++){
+					rand = Math.floor(Math.random()*2);
+					if(rand == 1){
+						A = "<p class='element E'>E</p>";
+					} else {
+						A = "<p class='element D'>D</p>";
+					}
+					L.append(A); 
+				}
+				L.append("<br>");
+			}
+		}); 
+	</script>
+</head>
+<body>
+	<h3>Create a 10 X 10 array and randomly fill each cell with "D" or "E"</h3>
+	<div id="box">
+	</div>	
+</body>
+</html>
