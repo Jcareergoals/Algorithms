@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Largest Palindrome</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){ 
+			function getPalinDrome(string){
+				var palinDrome = ""; 
+				var testArray = string.split(" "); 
+				var tempWord = ""; 
+				var tempChar = ""; 
+				for(x in testArray){
+					for(var i = testArray[x].length-1; i>=0; i--){
+						tempWord += testArray[x][i];
+					}
+					// From here we would check against a dictionary api to see if this now 'tempWord'
+					// as an actual recognized word
+					// $.get("url to api of choice"+tempWord,function(data){
+					// 	data = returned 'true' or 'false' value from api
+					// });
+					if(tempWord.length > palinDrome.length){
+						palinDrome = tempWord; 
+					} 
+					tempWord = "";
+				}
+				return palinDrome; 
+			}
+			var result = getPalinDrome("I see a star");
+
+			$('p').append(result);
+		});
+	</script>
+</head>
+<body>
+	<h3>Given a string, find the largest palindrome in the string.</h3>
+	<h4>We'll use the following: "I see a star"</h4>
+	<p>The result is: </p>
+</body>
+</html>
