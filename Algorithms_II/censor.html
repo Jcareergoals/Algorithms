@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Censor</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function censorString(censor, string){
+				var location = string.search(censor), word = ""; 
+				for(var x=0; x<censor.length; x++){
+					var rand = Math.floor(Math.random()*4)+1;
+					switch (rand){
+						case 1: 
+							word += "%";
+							break; 
+						case 2: 
+							word += "@"; 
+							break; 
+						case 3: 
+							word += "#";
+							break; 
+						case 4: 
+							word += "^";
+							break; 
+					}
+					rand = 0; 
+				}
+				return result = string.replace(censor, word);
+			}
+			var result = censorString("the", "I was chased by the dog while running today");
+			$('p').text("RESULT: "+result);
+		});
+	</script>
+</head>
+<body>
+	<h3>Create a function that takes two parameters. The first a word to censor and the second a string of text that may contain the word to be censored. Return the string with the censored word replaced with the correct length of *'s.</h3>
+	<h3>Hard mode: have it replaced with random symbols instead of just *'s.</h3>
+
+	<h4>We'll search for 'the' in the following string: "I was chased by the dog while running today.</h4>
+	<p></p>
+</body>
+</html>
