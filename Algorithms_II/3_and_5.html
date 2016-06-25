@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>3 and 5</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var x, sum = 0; 
+			for(var x=100; x<401; x+=1){
+				if(x % 3 == 0 && x % 5 == 0){
+					continue; 
+				} else if(x % 3 == 0 || x % 5 == 0){
+					sum += x; 
+				}
+			}
+			$('p').text("The sum is: "+sum);
+		});
+	</script>
+	<style type="text/css">
+		body {text-align: center;}
+	</style>
+</head>
+<body>
+	<h3>Add all the values between 100 and 4000000 inclusively that are divisible by 3 or 5 but not both 3 and 5.</h3>
+	<hr>
+	<p></p>
+</body>
+</html>
